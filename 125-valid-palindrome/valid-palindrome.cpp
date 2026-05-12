@@ -5,9 +5,7 @@ public:
         string res="";
         for(char ch: s){
             ch = tolower(ch);
-            if((ch>='0' && ch<='9')||(ch>='a' && ch<='z')){
-                res+=ch;
-            }
+            if((ch>='0' && ch<='9')||(ch>='a' && ch<='z')) res+=ch;
         }
         string dup = res;
         reverse(res.begin(),res.end());
