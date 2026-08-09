@@ -3,24 +3,30 @@ public:
     string sortSentence(string s) {
         vector<string>ans(10);
         string temp="";
-        for(int i=0;i<=s.size();i++){
-            if(i==s.size()||s[i]==' '){
-                int pos = temp.back()-'0';
+        int cnt = 0 , index = 0;
+        while(index<s.size()){
+            if(s[index]==' '){
+                int pos = temp[temp.size()-1] - '0';
                 temp.pop_back();
                 ans[pos] = temp;
                 temp.clear();
+                cnt++;
+                index++;
             }else{
-                temp+=s[i];
+                temp+=s[index];
+                index++;
             }
         }
-        string result = "";
-        for(int i=1;i<10;i++){
-            if(ans[i]!=""){
-                result+=ans[i];
-                result+=' ';
-            }
+        int pos = temp[temp.size()-1] - '0';
+        temp.pop_back();
+        ans[pos] = temp;
+        temp.clear();
+        cnt++;
+        for(int i=1;i<=cnt;i++){
+            temp += ans[i];
+            temp += ' ';
         }
-        result.pop_back();
-        return result;
+        temp.pop_back();
+        return temp;
     }
 };
